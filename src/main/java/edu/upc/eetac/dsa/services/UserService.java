@@ -184,7 +184,9 @@ public class UserService {
         return Response.status(201).entity(entity).build();
     }
 
+
     //CODI AFEGIT PEL MINIM 2 IRENE GORDUN
+    //DENUNCIAR ABÚS
     @POST
     @ApiOperation(value = "Denunciar abus", notes = "Denunciar")
     @ApiResponses(value = {
