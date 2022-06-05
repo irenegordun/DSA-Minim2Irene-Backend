@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Store</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="javascript:void(0)">MARIO BROS</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="inventory.html"  href="javascript:void(0)">Inventari</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="update.html" href="javascript:void(0)">Update user</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html" onclick="logout()" >Log out</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+      
+
+<div class="container mt-3">        
+  <h3>Botiga</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Objecte</th>
+        <th>Nom</th>
+        <th>Descripcio</th>
+        <th>Preu</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody> 
+      <tr>
+        <td>        <img src="images/weapon1.png" class="float-start" alt="Pistola1" width="100" height="100"> 
+        </td>
+        <td>Pistola</td>
+        <td>Pistola que dura tota la partida</td>
+        <td>50$</td>
+        <td><button type="btn" id ="btn1" class="btn btn-primary btn-warning" >Compra</button></td>
+      </tr>
+      <tr>
+        <td>        <img src="images/shield.png" class="float-start" alt="Escut" width="100" height="100"> 
+        </td>
+        <td>Escut</td>
+        <td>Es perd l'escut al xocar amb un goomba/planta</td>
+        <td>20$</td>
+        <td><button type="btn" id ="btn2" class="btn btn-primary btn-warning" >Compra</button></td>
+      </tr>
+      <tr>
+        <td>        <img src="images/luigi.png" class="float-start" alt="Luigi" width="100" height="100"> 
+        </td>
+        <td>Luigi</td>
+        <td>Skin</td>
+        <td>200$</td>
+        <td><button type="btn" id ="btn3" class="btn btn-primary btn-warning" >Compra</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
+

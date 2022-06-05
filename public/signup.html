@@ -1,0 +1,83 @@
+<!-- SIGNUP FUNCIONA -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Signup</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="javascript:void(0)">SUPER MARIO: UNLEASHED</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html" href="javascript:void(0)">Index</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html" href="javascript:void(0)">Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container-fluid">
+        <h2>Sign Up</h2>
+        <h5>Please, input a username, password and email</h5>
+        <div class="row">
+            <div 
+                ><input type="text" class="form-control" id="signup_username" placeholder="Username">
+            </div>
+            <div
+                ><input type="text" class="form-control" id="signup_email" placeholder="Email">
+            </div>
+            <div
+                ><input type="text" class="form-control" id="signup_password" placeholder="Password">
+            </div>
+            <div 
+                class="col-md-4"><button type="button" id ="buttonS" class="btn btn-primary btn-warning" onclick="signup()">Sign Up</button>
+            </div>
+            <script>
+                function signup() {
+    var username = $('#signup_username').val();
+    var password = $('#signup_password').val();
+    var email = $('#signup_email').val();
+
+    $.ajax({
+            contentType: "application/json",
+            type: 'POST',
+            url: '/dsaApp/user/addUser',
+            data: JSON.stringify({"username": username, "password": password, "email": email}),
+            dataType: 'json',
+            success: function (result) {
+                alert("Sign up completed. Nice to meet you, " + username);
+                localStorage.setItem("activeUser", username);
+                window.location.href = "userProfile.html";
+            },
+            error : function(error) {
+                if (username == "" || password == "" || email == "")
+                    alert("You left something blank. Please try again!");
+                else
+                    alert("Username or email already in use. Please try again!");
+                //window.location.href = "signup.html";
+            }
+    });
+}
+            </script>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
