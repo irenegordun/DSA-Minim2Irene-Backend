@@ -185,16 +185,23 @@ public class UserService {
     }
 
     //CODI AFEGIT PEL MINIM 2 IRENE GORDUN
-    @Path("/denuncia")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @POST
     @ApiOperation(value = "Denunciar abus", notes = "Denunciar")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 404, message = "User not found"),
             @ApiResponse(code = 500, message = "Error")
     })
+    @Path("/denuncia")
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response denuncia(Denuncia denuncia) {
+
+        User user = userManager.getUserByName(denuncia.getInformer());
+
         if (denuncia.getDate().isEmpty() || denuncia.getInformer().isEmpty() || denuncia.getMessage().isEmpty() ) {
             return Response.status(500).build(); //Error
+        } else if (user == null) {
+            return Response.status(404).build(); //usuari no existeix
         }
         //afegeix info de l'abús
         denuncia.setDate(denuncia.getDate());
